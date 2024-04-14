@@ -2,81 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Legacy Fabric - Mods</title>
+    <title>FishModLoader - 主页</title>
 
-    <meta property="og:site_name" content="Legacy Fabric - Mods">
-    <meta property="og:title" content="Legacy Fabric">
-    <meta property="og:url" content="https://legacyfabric.net/mods.html">
-    <meta property="og:image" content="https://legacyfabric.net/res/img/logo.png">
+    <meta property="og:site_name" content="FishModLoader - 主页">
+    <meta property="og:title" content="FishModLoader">
+    <meta property="og:url" content="https://fishmodloader.github.io/">
+    <meta property="og:image" content="https://fishmodloader.github.io/res/img/logo.png">
     <meta property="og:type" content="website">
-    <meta property="og:locale" content="en_US">
-    <meta property="og:description" content="The home of legacy version support for Fabric.">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:description" content="关于FishModLoader的主页">
 
     <link href="res/css/main.css" type="text/css" rel="stylesheet">
-    <link href="res/css/mods.css" type="text/css" rel="stylesheet">
-    <script src="res/mods.js"></script>
+    <link href="res/css/index.css" type="text/css" rel="stylesheet">
 </head>
-<body onload="loadVersions(); showVersion('1.8.9')">
+<body>
     <nav>
         <a class="main-nav" href="/">
-            <!--suppress CheckImageSize -->
             <img src="res/img/logo.png" alt="" width="32" height="32">
-            Legacy Fabric
+            FishModLoader
         </a>
-        <a href="/downloads.html">Downloads</a>
-        <a href="/mods.html">Mods</a>
-        <a href="https://github.com/Legacy-Fabric/">Source</a>
-        <a href="/discord">Discord</a>
-        <a href="https://status.legacyfabric.net">Status</a>
+        <a href="/downloads.html">下载</a>
+        <a href="/mods.html">模组</a>
+        <a href="https://github.com/Xiao_Yu233/">源码</a>
+        <a href="/discord">QQ</a>
     </nav>
     <div class="page-content">
-        <h2>Mod compatibility status</h2>
-        <p>This isn't an official list of mods. More mods exist, but these are the ones tested by the community.<br>
-        Please Feel free to add mods to <a href="https://github.com/Legacy-Fabric/legacyfabric.net/blob/master/res/mods.js">
-        the list</a>! This is community generated, and needs contribution to stay relevant.</p>
-
-        <label for="version-select">Minecraft Version:</label>
-        <select id="version-select" onchange="showVersion(this.value);"></select>
+        <h2>MITE模组浏览器</h2>
+        <p>这是一个官方的模组列表，由官方定期更新。</p>
 
         <div style="height: 10px;"></div>
 
         <table id="mods-table">
             <tr>
-                <th>Name</th>
-                <th>Links</th>
-                <th>Working <span title="Some mods don't currently work due to being compiled with outdated intermediaries. Contact their respective developers if you want the mods fixed.">(?)</span></th>
+                <th>名称</th>
+                <th>下载链接</th>
+                <th>工作版本</th>
+            </tr>
+            <tr>
+                <td>OMMC</td>
+    <td><a href="http://nonedownloadlink">下载</a></td>
+    <td>FML3.x/2.x</td>
             </tr>
         </table>
     </div>
-    <script>
-        function loadVersions() {
-            let newHtml = "";
-            for (const version of versions) {
-                const selected = version === "1.8.9" ? " selected" : "";
-                newHtml += `<option value="${version}" ${selected}>${version}</option>`;
-            }
-
-            document.getElementById("version-select").innerHTML = newHtml;
-        }
-
-        function showVersion(version) {
-            const table = document.getElementById("mods-table");
-            while (table.children.length > 1) {
-                table.removeChild(table.lastChild)
-            }
-
-            for (const mod of getModsInVersion(version)) {
-                const tr = document.createElement("tr");
-                let links = "";
-                for (const [site, link] of Object.entries(mod["links"])) {
-                    links += `<a href=\"${link}\"><img src="res/img/logos/${site}.svg" class="mod-link" alt="${site}"></a>`;
-                }
-                const working = mod.working ? "✔️" : "❌️";
-
-                tr.innerHTML = `<td>${mod.name}</td><td>${links}</td><td>${working}</td>`;
-                table.appendChild(tr);
-            }
-        }
-    </script>
 </body>
 </html>

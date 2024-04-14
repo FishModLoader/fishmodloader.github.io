@@ -2,61 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Legacy Fabric - Downloads</title>
+    <title>FishModLoader - 主页</title>
 
-    <meta property="og:site_name" content="Legacy Fabric - Downloads">
-    <meta property="og:title" content="Legacy Fabric">
-    <meta property="og:url" content="https://legacyfabric.net/downloads.html">
-    <meta property="og:image" content="https://legacyfabric.net/res/img/logo.png">
+    <meta property="og:site_name" content="FishModLoader - 主页">
+    <meta property="og:title" content="FishModLoader">
+    <meta property="og:url" content="https://fishmodloader.github.io/">
+    <meta property="og:image" content="https://fishmodloader.github.io/res/img/logo.png">
     <meta property="og:type" content="website">
-    <meta property="og:locale" content="en_US">
-    <meta property="og:description" content="The home of legacy version support for Fabric.">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:description" content="关于FishModLoader的主页">
 
     <link href="res/css/main.css" type="text/css" rel="stylesheet">
-    <link href="res/css/downloads.css" type="text/css" rel="stylesheet">
+    <link href="res/css/index.css" type="text/css" rel="stylesheet">
 </head>
 <body>
     <nav>
         <a class="main-nav" href="/">
             <img src="res/img/logo.png" alt="" width="32" height="32">
-            Legacy Fabric
+            FishModLoader
         </a>
-        <a href="/downloads.html">Downloads</a>
-        <a href="/mods.html">Mods</a>
-        <a href="https://github.com/Legacy-Fabric/">Source</a>
-        <a href="/discord">Discord</a>
-        <a href="https://status.legacyfabric.net">Status</a>
+        <a href="/downloads.html">下载</a>
+        <a href="/mods.html">模组</a>
+        <a href="https://github.com/Xiao_Yu233/">源码</a>
+        <a href="/discord">QQ</a>
     </nav>
     <div class="page-content">
         <!-- Installer -->
         <div id="installer-container">
-            <h2>Installers</h2>
-            <p>For the normal minecraft launcher and MultiMC</p>
-            <a href="https://maven.legacyfabric.net/net/legacyfabric/fabric-installer/0.11.1/fabric-installer-0.11.1.exe" id="installer-exe"><button class="download-button">Download .exe <br> (for windows)</button></a>
-            <a href="https://maven.legacyfabric.net/net/legacyfabric/fabric-installer/0.11.1/fabric-installer-0.11.1.jar" id="installer-jar"><button class="download-button">Download .jar <br> (universal)</button></a>
-            <a href="https://github.com/Legacy-Fabric/multimc-instance-creator/releases"><button class="download-button">MultiMC <br> instances</button></a>
+            <h2>安装器和服务器核心</h2>
+            <a href="https://github.com/xiaoyuovo/fishmodloader/releases" id="loadffff"><button class="download-button">下载最新版本FML</button></a>
+            <a href="https://github.com/FishModLoader/downloadserverfml"><button class="download-button">最新服务器</button></a>
 </body>
-<script>
-    var fallback = "0.11.1"
-    function setLatestMeta() {
-        var latest
-        fetch("https://meta.legacyfabric.net/v2/versions/installer")
-        .then(function(response) {
-            return response.json()
-        }).then(function(json) {
-            // the first in the array is supposed to be the latest
-            // todo: some sanity check to ensure its a real version
-            latest = json[0]["version"]
-            document.getElementById("installer-exe").href = "https://maven.legacyfabric.net/net/legacyfabric/fabric-installer/" + latest + "/fabric-installer-" + latest + ".exe"
-            document.getElementById("installer-jar").href = "https://maven.legacyfabric.net/net/legacyfabric/fabric-installer/" + latest + "/fabric-installer-" + latest + ".jar"
-        }).catch(function(err) {
-            console.error("couldn't determine latest version; using fallback " + fallback)
-            
-            latest = fallback
-            document.getElementById("installer-exe").href = "https://maven.legacyfabric.net/net/legacyfabric/fabric-installer/" + latest + "/fabric-installer-" + latest + ".exe"
-            document.getElementById("installer-jar").href = "https://maven.legacyfabric.net/net/legacyfabric/fabric-installer/" + latest + "/fabric-installer-" + latest + ".jar"
-        })
-    }
-    setLatestMeta()
 </script>
 </html>
