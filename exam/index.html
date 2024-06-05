@@ -27,4 +27,32 @@
         <label for="q6">增加伤害的那一类(如锋利)附魔会吃等级加成吗(回答是或否)</label><br>
         <input type="text" id="q6" name="q6"><br>
         
-        <label for="q7">何时加入的祛魔之瓶(回答版本号
+        <label for="q7">何时加入的祛魔之瓶(回答版本号)</label><br>
+        <input type="text" id="q7" name="q7"><br>
+        
+        <label for="q8">怎么扔鸡蛋(回答键位，全大写)</label><br>
+        <input type="text" id="q8" name="q8"><br><br>
+
+        <input type="button" value="提交" onclick="checkAnswers()">
+    </form>
+
+    <script>
+        function checkAnswers() {
+            var q1 = document.getElementById("q1").value;
+            var q2 = document.getElementById("q2").value;
+            var q3 = document.getElementById("q3").value;
+            var q4 = document.getElementById("q4").value;
+            var q5 = document.getElementById("q5").value;
+            var q6 = document.getElementById("q6").value;
+            var q7 = document.getElementById("q7").value;
+            var q8 = document.getElementById("q8").value;
+
+            if (q1 == "384" && q2 == "200" && q3 == "否" && q4 == "716800" && q5 == "否" && q6 == "否" && q7 == "R76" && q8 == "CTRL") {
+                alert("此处发回验证码");
+            } else {
+                alert("渡劫失败！");
+            }
+        }
+    </script>
+</body>
+</html>
